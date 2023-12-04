@@ -36,7 +36,7 @@
                 <!-- /* End of input value wrapper */  -->
 
                 <!-- /* Start replace Button  /arrow-right-left/ */ -->
-                <button class="arrow-right_left" onclick="almashtir(this)">
+                <button class="btn arrow-right_left" onclick="almashtir(this)">
                     <i class="fa-solid fa-arrow-right-arrow-left"></i>
                 </button>
                 <!-- /* And replace Button */ -->
@@ -53,9 +53,20 @@
                         disabled
                         placeholder="Va bu yerdan o'z natijangizga erishing"
                     ></textarea>
+                    <button
+                        class="btn copy"
+                        id="copy-btn"
+                        onclick="copyResult()"
+                    >
+                        <i class="fa-regular fa-copy"></i>
+                    </button>
                 </div>
                 <!-- /* End Output value wrapper */ -->
             </div>
+        </div>
+
+        <div class="modal message-copy" id="modal">
+            Natija muvaffaqiyatli nusxalandi
         </div>
         <script src="./js/main.js"></script>
     </body>

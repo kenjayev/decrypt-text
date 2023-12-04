@@ -2,8 +2,9 @@
 let inputValue = document.getElementById("inputValue"),
     outputValue = document.getElementById("outputValue"),
     inputValueLabel = document.getElementById("inputValueLabel"),
-    keyKod = 15,
-    isYourWords = true;
+    copyBtn = document.getElementById("copy-btn"),
+    modal = document.getElementById("modal");
+(keyKod = 15), (isYourWords = true);
 
 // Each changes use this function and output result
 inputValue.addEventListener("input", () => {
@@ -21,6 +22,11 @@ inputValue.addEventListener("input", () => {
 
     //output our result
     outputValue.value = newString;
+    if (outputValue.value.length === 0) {
+        copyBtn.style.display = "none";
+    } else if (outputValue.value.length > 0) {
+        copyBtn.style.display = "block";
+    }
 });
 
 // replays result function, it call in html
@@ -84,4 +90,13 @@ function qaytar(item) {
         result = result - 126 + 31;
     }
     return result;
+}
+
+function copyResult() {
+    console.log(outputValue.value);
+    navigator.clipboard.writeText(outputValue.value);
+    modal.style.display = "block";
+    setTimeout(() => {
+        modal.style.display = "none";
+    }, 2500);
 }
