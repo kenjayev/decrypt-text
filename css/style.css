@@ -1,3 +1,4 @@
+/* Google fonts: roboto 400-700, Fira-code 400 */
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code&family=Roboto:ital,wght@0,700;1,400&display=swap");
 
 * {
@@ -8,12 +9,15 @@
 html {
     font-family: "Roboto", sans-serif;
 }
+
+/* big wrapper all contents */
 .container {
     max-width: 1350px;
     margin: 0 auto;
     padding: 30px 50px;
 }
 
+/* wrapper all shifre divs */
 .zoneShifir {
     margin-top: 50px;
     display: flex;
@@ -35,7 +39,7 @@ label {
 }
 textarea {
     width: 100%;
-    height: 150px;
+    height: 220px;
     padding: 12px 20px;
     box-sizing: border-box;
     border: 2px solid #ccc;
@@ -46,6 +50,7 @@ textarea {
     font-family: "Fira Code", monospace;
 }
 
+/* replays inputValue to OutputValue */
 .arrow-right_left {
     color: #333;
     border: 2px solid #ccc;
@@ -58,6 +63,7 @@ textarea {
     transform: translateY(50%);
 }
 
+/* Start media query for Table and Phons */
 @media screen and (max-width: 800px) {
     .zoneShifir {
         flex-direction: column;
@@ -74,3 +80,4 @@ textarea {
         width: 100%;
     }
 }
+/* End media query for Table and Phons */

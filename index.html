@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Shifir</title>
+        <!-- Font awesome  -->
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -12,11 +13,13 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         />
+        <!-- Main styles -->
         <link rel="stylesheet" href="./css/style.css" />
     </head>
     <body>
         <div class="container">
             <div class="zoneShifir">
+                <!-- /* Start input value wrapper */ -->
                 <div>
                     <label for="inputValue" id="inputValueLabel"
                         >Shifirlanuvchi so'z:
@@ -30,9 +33,15 @@
                         placeholder="Shifirlanuvchi so'zni bu yerga kiriting"
                     ></textarea>
                 </div>
+                <!-- /* End of input value wrapper */  -->
+
+                <!-- /* Start replace Button  /arrow-right-left/ */ -->
                 <button class="arrow-right_left" onclick="almashtir(this)">
                     <i class="fa-solid fa-arrow-right-arrow-left"></i>
                 </button>
+                <!-- /* And replace Button */ -->
+
+                <!-- /* Start Output value wrapper */ -->
                 <div>
                     <label for="outputValueLable">Natijangiz: </label>
 
@@ -45,9 +54,9 @@
                         placeholder="Va bu yerdan o'z natijangizga erishing"
                     ></textarea>
                 </div>
+                <!-- /* End Output value wrapper */ -->
             </div>
         </div>
-
         <script src="./js/main.js"></script>
     </body>
 </html>
