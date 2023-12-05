@@ -5,16 +5,18 @@ let inputValue = document.getElementById("inputValue"),
     copyBtn = document.getElementById("copy-btn"),
     modal = document.getElementById("modal"),
     typeCodeSelect = document.getElementById("typeCode"),
-    keyKod = -3,
+    typroffText = document.getElementById("typroffText"),
+    keyKod = 3,
     isYourWords = true;
 
 typeCodeSelect.addEventListener("change", (e) => {
     if (typeCodeSelect.value == "sezer") {
-        keyKod = -3;
+        keyKod = 3;
     } else if (typeCodeSelect.value == "sezer_pro_max") {
         keyKod = 15;
     }
 
+    typroffText.textContent = `${typeCodeSelect.value} Usulidan foydalanib Codlash:`;
     mainStartCode();
 });
 // Each changes use this function and output result
@@ -41,31 +43,61 @@ function mainStartCode() {
 // Coding ASCII numbers
 function shifirla(item) {
     // Mains our Key Number
-    let result = item.charCodeAt() - keyKod;
-
-    // this is for Entre, its ASCII code is 10
-    if (result == 10 - keyKod) {
-        result = 10;
+    let result = item.charCodeAt();
+    if (
+        (64 < result && result <= 90) ||
+        (97 <= result && result <= 122 && typeCodeSelect.value == "sezer")
+    ) {
+        result += keyKod;
+        if (result > 90 && result < 97) {
+            result = result - 90 + 64;
+        } else if (result > 122) {
+            result = result - 122 + 96;
+        }
     }
-    // for decreased numbers
-    else if (result < 32) {
-        result = 126 + result - 31;
+
+    if (typeCodeSelect.value == "sezer_pro_max") {
+        result = item.charCodeAt() - keyKod;
+
+        // this is for Entre, its ASCII code is 10
+        if (result == 10 - keyKod) {
+            result = 10;
+        }
+        // for decreased numbers
+        else if (result < 32) {
+            result = 126 + result - 31;
+        }
     }
     return result;
 }
 
 // DeCoding ASCII numbers
 function qaytar(item) {
-    // Plus our Key Number
-    let result = item.charCodeAt() + keyKod;
-
-    // this is for Entre, its ASCII code is 10
-    if (result == 10 + keyKod) {
-        result = 10;
+    let result = item.charCodeAt();
+    if (
+        (64 < result && result <= 90) ||
+        (97 <= result && result <= 122 && typeCodeSelect.value == "sezer")
+    ) {
+        result -= keyKod;
+        if (result < 65) {
+            result = result - 65 + 91;
+        } else if (result < 97) {
+            result = result - 97 + 123;
+        }
     }
-    // For excesses numbers
-    else if (result > 126) {
-        result = result - 126 + 31;
+
+    if (typeCodeSelect.value == "sezer_pro_max") {
+        // Plus our Key Number
+        result = item.charCodeAt() + keyKod;
+
+        // this is for Entre, its ASCII code is 10
+        if (result == 10 + keyKod) {
+            result = 10;
+        }
+        // For excesses numbers
+        else if (result > 126) {
+            result = result - 126 + 31;
+        }
     }
     return result;
 }

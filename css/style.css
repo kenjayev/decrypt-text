@@ -10,6 +10,13 @@ html {
     font-family: "Roboto", sans-serif;
 }
 
+.top_section {
+    display: flex;
+}
+.typroffText {
+    margin-left: 25px;
+}
+
 /* big wrapper all contents */
 .container {
     max-width: 1350px;
@@ -93,11 +100,26 @@ textarea[name="inputValue"] {
     transform: translateY(50%);
 }
 
+#typeCode,
+#typeCode > option {
+    font-weight: 500;
+    font-size: 16px;
+    padding: 4px 8px;
+    color: #4e4e4e;
+}
+
 /* Start media query for Table and Phons */
 @media screen and (max-width: 800px) {
-    .zoneShifir {
+    .zoneShifir,
+    .top_section {
         flex-direction: column;
         align-items: flex-start;
+        margin-top: 20px;
+    }
+    .typroffText {
+        margin: 0;
+        margin-top: 5px;
+        font-size: 20px;
     }
     .btn {
         width: 45px;
