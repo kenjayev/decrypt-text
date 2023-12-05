@@ -75,7 +75,7 @@ textarea {
     border: none;
 }
 textarea[name="inputValue"] {
-    background-color: #f8f8f8;
+    background-color: #fafafa;
     border: 2px solid #ccc;
 }
 
@@ -110,6 +110,15 @@ textarea[name="inputValue"] {
     }
     .zoneShifir > div {
         width: 100%;
+    }
+    textarea {
+        height: 150px;
+    }
+    .modal {
+        padding: 10px 15px;
+        font-size: 16px;
+        top: 20px;
+        right: 20px;
     }
 }
 /* End media query for Table and Phons */
