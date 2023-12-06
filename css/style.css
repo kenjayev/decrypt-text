@@ -1,6 +1,11 @@
 /* Google fonts: roboto 400-700, Fira-code 400 */
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code&family=Roboto:ital,wght@0,700;1,400&display=swap");
 
+:root {
+    /* --mainColor: #08caf6; */
+    --mainColor: green;
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -9,7 +14,7 @@
 body {
     min-height: 100vh;
     background-color: #000;
-    color: #08caf6;
+    color: var(--mainColor);
 }
 html {
     font-family: "Roboto", sans-serif;
@@ -42,15 +47,17 @@ html {
 .modal {
     padding: 15px 20px;
     background-color: #000;
-    color: rgb(8 202 246);
+    color: var(--mainColor);
     border-radius: 5px;
     font-size: 16px;
+
     position: fixed;
-    top: 25px;
+    bottom: 25px;
     right: 50px;
+
     letter-spacing: 2px;
-    box-shadow: 0 -1px 47px rgba(8, 202, 246, 0.4),
-        0px 2px 12px rgba(8, 202, 246, 0.7);
+    box-shadow: 0 -1px 47px rgba(0, 128, 0, 0.4),
+        0px 2px 12px rgba(0, 128, 0, 0.7);
     display: none;
 }
 
@@ -85,11 +92,11 @@ textarea {
     resize: none;
     font-family: "Fira Code", monospace;
     border: none;
-    color: #08caf6;
+    color: var(--mainColor);
 }
 textarea[name="inputValue"] {
     background-color: #111;
-    border: 2px solid #08caf6;
+    border: 2px solid var(--mainColor);
 }
 
 /* Copy Result */
@@ -111,9 +118,9 @@ textarea[name="inputValue"] {
     font-weight: 500;
     font-size: 16px;
     padding: 8px 16l px;
-    color: rgb(8 202 246);
+    color: var(--mainColor);
     background-color: #000;
-    border: 2px solid rgb(8 202 246);
+    border: 2px solid var(--mainColor);
     border-radius: 4px;
 }
 
@@ -124,6 +131,13 @@ textarea[name="inputValue"] {
         flex-direction: column;
         align-items: flex-start;
         margin-top: 20px;
+    }
+    .top_section {
+        align-items: center;
+    }
+    #typroffText {
+        margin-top: 10px;
+        text-align: center;
     }
     .typroffText {
         margin: 0;
@@ -148,7 +162,7 @@ textarea[name="inputValue"] {
     .modal {
         padding: 10px 15px;
         font-size: 16px;
-        top: 20px;
+        bottom: 20px;
         right: 20px;
     }
 }
