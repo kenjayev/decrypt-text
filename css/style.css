@@ -6,6 +6,11 @@
     margin: 0;
     box-sizing: border-box;
 }
+body {
+    min-height: 100vh;
+    background-color: #000;
+    color: #08caf6;
+}
 html {
     font-family: "Roboto", sans-serif;
 }
@@ -25,26 +30,27 @@ html {
 }
 /* For Button */
 .btn {
-    color: #333;
+    color: #fff;
     border: 2px solid #ccc;
     border-radius: 50%;
     font-size: 22px;
-    background-color: #f8f8f8;
+    background-color: transparent;
     width: 50px;
     height: 50px;
 }
 /* Modal */
 .modal {
     padding: 15px 20px;
-    background-color: #333;
-    color: #fff;
+    background-color: #000;
+    color: rgb(8 202 246);
     border-radius: 5px;
     font-size: 16px;
     position: fixed;
     top: 25px;
     right: 50px;
     letter-spacing: 2px;
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5), 0px 7px 17px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 -1px 47px rgba(8, 202, 246, 0.4),
+        0px 2px 12px rgba(8, 202, 246, 0.7);
     display: none;
 }
 
@@ -63,7 +69,6 @@ label {
     display: block;
     font-weight: 400;
     font-size: 15px;
-    color: #4e4e4e;
     letter-spacing: 2px;
     margin-left: 5px;
     margin-bottom: 5px;
@@ -75,15 +80,16 @@ textarea {
     padding: 12px 20px;
     box-sizing: border-box;
     border-radius: 4px;
-    background-color: #efefef;
+    background-color: #1e1e1e;
     font-size: 16px;
     resize: none;
     font-family: "Fira Code", monospace;
     border: none;
+    color: #08caf6;
 }
 textarea[name="inputValue"] {
-    background-color: #fafafa;
-    border: 2px solid #ccc;
+    background-color: #111;
+    border: 2px solid #08caf6;
 }
 
 /* Copy Result */
@@ -104,8 +110,11 @@ textarea[name="inputValue"] {
 #typeCode > option {
     font-weight: 500;
     font-size: 16px;
-    padding: 4px 8px;
-    color: #4e4e4e;
+    padding: 8px 16l px;
+    color: rgb(8 202 246);
+    background-color: #000;
+    border: 2px solid rgb(8 202 246);
+    border-radius: 4px;
 }
 
 /* Start media query for Table and Phons */
