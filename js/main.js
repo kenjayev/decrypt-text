@@ -6,19 +6,25 @@ let inputValue = document.getElementById("inputValue"),
     modal = document.getElementById("modal"),
     typeCodeSelect = document.getElementById("typeCode"),
     typroffText = document.getElementById("typroffText"),
+    keyKodInput = document.getElementById("key"), /// input for key word
+    save_key = document.getElementById("save_key"), ///btn which save key word
+    outputKey = document.getElementById("outputKey"), /// output span for key word
     keyKod = 3,
     isYourWords = true;
 
 typeCodeSelect.addEventListener("change", (e) => {
-    if (typeCodeSelect.value == "sezer") {
+    if (typeCodeSelect.value == "sezar") {
         keyKod = 3;
-    } else if (typeCodeSelect.value == "sezer_pro_max") {
+        keyToInoutVAlue();
+    } else if (typeCodeSelect.value == "bolakay") {
         keyKod = 15;
+        keyToInoutVAlue();
     }
 
     typroffText.textContent = `${typeCodeSelect.value} Usulidan foydalanib Codlash:`;
     mainStartCode();
 });
+
 // Each changes use this function and output result
 inputValue.addEventListener("input", mainStartCode);
 
@@ -46,7 +52,7 @@ function shifirla(item) {
     let result = item.charCodeAt();
     if (
         (64 < result && result <= 90) ||
-        (97 <= result && result <= 122 && typeCodeSelect.value == "sezer")
+        (97 <= result && result <= 122 && typeCodeSelect.value == "sezar")
     ) {
         result += keyKod;
         if (result > 90 && result < 97) {
@@ -56,7 +62,7 @@ function shifirla(item) {
         }
     }
 
-    if (typeCodeSelect.value == "sezer_pro_max") {
+    if (typeCodeSelect.value == "bolakay") {
         result = item.charCodeAt() - keyKod;
 
         // this is for Entre, its ASCII code is 10
@@ -76,7 +82,7 @@ function qaytar(item) {
     let result = item.charCodeAt();
     if (
         (64 < result && result <= 90) ||
-        (97 <= result && result <= 122 && typeCodeSelect.value == "sezer")
+        (97 <= result && result <= 122 && typeCodeSelect.value == "sezar")
     ) {
         result -= keyKod;
         if (result < 65) {
@@ -86,7 +92,7 @@ function qaytar(item) {
         }
     }
 
-    if (typeCodeSelect.value == "sezer_pro_max") {
+    if (typeCodeSelect.value == "bolakay") {
         // Plus our Key Number
         result = item.charCodeAt() + keyKod;
 
@@ -151,3 +157,17 @@ function almashtir() {
         );
     }
 }
+
+save_key.addEventListener("click", () => {
+    if (keyKodInput.value) {
+        keyKod = +keyKodInput.value;
+    }
+    keyKodInput.value = "";
+    keyToInoutVAlue();
+    mainStartCode();
+});
+
+function keyToInoutVAlue() {
+    outputKey.textContent = keyKod;
+}
+keyToInoutVAlue();

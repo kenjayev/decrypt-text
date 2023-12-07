@@ -20,12 +20,29 @@
         <div class="container">
             <div class="top_section">
                 <select name="typeCode" id="typeCode">
-                    <option value="sezer">sezer</option>
-                    <option value="sezer_pro_max">sezer Pro Max</option>
+                    <option value="sezar">sezar</option>
+                    <option value="bolakay">bolakay</option>
                 </select>
-                <h2 id="typroffText" class="typroffText">
-                    Sezer Usulidan foydalanib Codlash
-                </h2>
+                <div class="top-text">
+                    <h2 id="typroffText" class="typroffText">
+                        sezar Usulidan foydalanib Codlash
+                    </h2>
+                    <div>
+                        <p>Key:</p>
+                        <i id="outputKey"></i>
+                    </div>
+                </div>
+                <div class="keyWrapper">
+                    <p class="keyParagraph">Kalit:</p>
+                    <input
+                        type="number"
+                        name="key"
+                        id="key"
+                        class="key input"
+                        placeholder="Codlash uchun kelaitni krting"
+                    />
+                    <button class="btn-save" id="save_key">Saqlash</button>
+                </div>
             </div>
 
             <div class="zoneShifir">
@@ -41,6 +58,7 @@
                         rows="10"
                         autofocus
                         placeholder="Shifirlanuvchi so'zni bu yerga kiriting"
+                        class="input"
                     ></textarea>
                 </div>
                 <!-- /* End of input value wrapper */  -->
@@ -62,6 +80,7 @@
                         rows="10"
                         disabled
                         placeholder="Va bu yerdan o'z natijangizga erishing"
+                        class="input"
                     ></textarea>
                     <button
                         class="btn copy"
