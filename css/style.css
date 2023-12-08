@@ -5,6 +5,7 @@
     /* --mainColor: #08caf6; */
     /* --mainColor: green; */
     --mainColor: #fff;
+    --mainBg: #000;
 }
 
 * {
@@ -14,8 +15,11 @@
 }
 body {
     min-height: 100vh;
-    background-color: #000;
+    background-color: var(--mainBg);
     color: var(--mainColor);
+    background: url("../bg.jpg");
+    background-size: cover;
+    background-position: top;
 }
 html {
     font-family: "Roboto", sans-serif;
@@ -55,7 +59,7 @@ html {
 /* For Button */
 .btn {
     color: #fff;
-    border: 2px solid #ccc;
+    border: 3px solid #ccc;
     border-radius: 50%;
     font-size: 22px;
     background-color: transparent;
@@ -137,7 +141,7 @@ textarea[name="inputValue"] {
     font-size: 16px;
     padding: 8px 16px;
     color: var(--mainColor);
-    background-color: #000;
+    background-color: var(--mainBg);
     border: 2px solid var(--mainColor);
     border-radius: 4px;
 }

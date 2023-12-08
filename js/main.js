@@ -1,17 +1,18 @@
 // all variables call in HTML page
-let inputValue = document.getElementById("inputValue"),
-    outputValue = document.getElementById("outputValue"),
-    inputValueLabel = document.getElementById("inputValueLabel"),
-    copyBtn = document.getElementById("copy-btn"),
-    modal = document.getElementById("modal"),
-    typeCodeSelect = document.getElementById("typeCode"),
-    typroffText = document.getElementById("typroffText"),
+let inputValue = document.getElementById("inputValue"), /// input value for coding or decoding
+    outputValue = document.getElementById("outputValue"), /// output value for coding or decoding for result
+    inputValueLabel = document.getElementById("inputValueLabel"), /// Label for input value
+    copyBtn = document.getElementById("copy-btn"), /// Button for copy result text
+    modal = document.getElementById("modal"), /// Message to copying result text
+    typeCodeSelect = document.getElementById("typeCode"), /// Selected by type coding
+    typroffText = document.getElementById("typroffText"), /// which coding type. for write html text
     keyKodInput = document.getElementById("key"), /// input for key word
     save_key = document.getElementById("save_key"), ///btn which save key word
     outputKey = document.getElementById("outputKey"), /// output span for key word
-    keyKod = 3,
+    keyKod = 3, /// key for coding or decoding
     isYourWords = true;
 
+///Select our type coding
 typeCodeSelect.addEventListener("change", (e) => {
     if (typeCodeSelect.value == "sezar") {
         keyKod = 3;
@@ -21,13 +22,13 @@ typeCodeSelect.addEventListener("change", (e) => {
         keyToInoutVAlue();
     }
 
+    /// write in html to type coding
     typroffText.textContent = `${typeCodeSelect.value} Usulidan foydalanib Codlash:`;
     mainStartCode();
 });
 
 // Each changes use this function and output result
 inputValue.addEventListener("input", mainStartCode);
-
 function mainStartCode() {
     // ASCII numbers arr, coding numbers
     let stringCharsCodes = inputValue.value.split("").map((item) => {
@@ -158,15 +159,23 @@ function almashtir() {
     }
 }
 
+/// Save our new Kay code
 save_key.addEventListener("click", () => {
     if (keyKodInput.value) {
-        keyKod = +keyKodInput.value;
+        if (typeCodeSelect.value == "sezar") {
+            keyKod = +keyKodInput.value % 26;
+        }
+        if (typeCodeSelect.value == "bolakay") {
+            keyKod = +keyKodInput.value % 95;
+        }
     }
+
     keyKodInput.value = "";
     keyToInoutVAlue();
     mainStartCode();
 });
 
+/// print in html our key value
 function keyToInoutVAlue() {
     outputKey.textContent = keyKod;
 }
