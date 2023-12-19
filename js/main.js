@@ -9,6 +9,7 @@ let inputValue = document.getElementById("inputValue"), /// input value for codi
     keyKodInput = document.getElementById("key"), /// input for key word
     save_key = document.getElementById("save_key"), ///btn which save key word
     outputKey = document.getElementById("outputKey"), /// output span for key word
+    codeOrDecode = document.getElementById("codeOrDecode"), /// write html page what syte type code or Decode
     keyKod = 3, /// key for coding or decoding
     isYourWords = true;
 
@@ -52,8 +53,8 @@ function shifirla(item) {
     // Mains our Key Number
     let result = item.charCodeAt();
     if (
-        (64 < result && result <= 90) ||
-        (97 <= result && result <= 122 && typeCodeSelect.value == "sezar")
+        ((64 < result && result <= 90) || (97 <= result && result <= 122)) &&
+        typeCodeSelect.value == "sezar"
     ) {
         result += keyKod;
         if (result > 90 && result < 97) {
@@ -63,16 +64,13 @@ function shifirla(item) {
         }
     }
 
-    if (typeCodeSelect.value == "bolakay") {
-        result = item.charCodeAt() - keyKod;
-
-        // this is for Entre, its ASCII code is 10
-        if (result == 10 - keyKod) {
-            result = 10;
-        }
+    if (31 < result && result <= 126 && typeCodeSelect.value == "bolakay") {
+        result -= keyKod;
         // for decreased numbers
-        else if (result < 32) {
+        if (result < 32) {
             result = 126 + result - 31;
+        } else if (result > 126) {
+            result = result - 126 + 31;
         }
     }
     return result;
@@ -82,28 +80,31 @@ function shifirla(item) {
 function qaytar(item) {
     let result = item.charCodeAt();
     if (
-        (64 < result && result <= 90) ||
-        (97 <= result && result <= 122 && typeCodeSelect.value == "sezar")
+        ((64 < result && result <= 90) || (97 <= result && result <= 122)) &&
+        typeCodeSelect.value == "sezar"
     ) {
+        console.log(result);
         result -= keyKod;
+        console.log(result);
+
         if (result < 65) {
             result = result - 65 + 91;
-        } else if (result < 97) {
+        }
+
+        if (result < 97 && result > 90) {
             result = result - 97 + 123;
         }
     }
 
-    if (typeCodeSelect.value == "bolakay") {
+    if (31 < result && result <= 126 && typeCodeSelect.value == "bolakay") {
         // Plus our Key Number
-        result = item.charCodeAt() + keyKod;
+        result += keyKod;
 
-        // this is for Entre, its ASCII code is 10
-        if (result == 10 + keyKod) {
-            result = 10;
-        }
         // For excesses numbers
-        else if (result > 126) {
+        if (result > 126) {
             result = result - 126 + 31;
+        } else if (result < 32) {
+            result = result - 32 + 127;
         }
     }
     return result;
@@ -111,12 +112,33 @@ function qaytar(item) {
 
 // Copy your result value
 function copyResult() {
-    console.log(outputValue.value);
+    // copy text in buffer
+    //     navigator.clipboard.writeText(`"${typeCodeSelect.value} : ${keyKod} : ${
+    //         isYourWords ? "Code" : "Decode"
+    //     }"
+
+    // ${outputValue.value}
+    //     `);
     navigator.clipboard.writeText(outputValue.value);
+
     modal.style.display = "block";
+    modal.innerHTML += `
+    <p> Natija muvaffaqiyatli nusxalandi</p>
+    `;
+    setTimeout(() => {
+        modal.innerHTML += `
+            <p>Shifirlash turi: <b>${typeCodeSelect.value}</b> </p>
+        `;
+    }, 800);
+    setTimeout(() => {
+        modal.innerHTML += `
+            <p>Kalit: <b>${keyKod}</b> </p>
+        `;
+    }, 1600);
     setTimeout(() => {
         modal.style.display = "none";
-    }, 2500);
+        modal.innerHTML = "";
+    }, 3000);
 }
 
 // hidden or block Copy img element
@@ -142,6 +164,7 @@ function almashtir() {
 
     // input change for decode
     if (!isYourWords) {
+        codeOrDecode.textContent = "Decodlash";
         inputValueLabel.textContent = "Shifirlangan matnni kriting: ";
         inputValue.setAttribute(
             "placeholder",
@@ -151,11 +174,9 @@ function almashtir() {
 
     // input change for code
     else {
+        codeOrDecode.textContent = "Codlash";
         inputValueLabel.textContent = "Shifirlanuvchi so'z: ";
-        inputValue.setAttribute(
-            "placeholder",
-            "Shifirlanuvchi so'zni bu yerga kiriting"
-        );
+        inputValue.setAttribute("placeholder", "Asl so'zni bu yerga kiriting");
     }
 }
 

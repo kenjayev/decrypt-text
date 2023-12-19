@@ -17,7 +17,8 @@ body {
     min-height: 100vh;
     background-color: var(--mainBg);
     color: var(--mainColor);
-    background: url("../bg.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.01)),
+        url("../bg.jpg");
     background-size: cover;
     background-position: top;
 }
@@ -71,7 +72,11 @@ html {
     position: fixed;
     bottom: 25px;
     right: 50px;
+    display: none;
+}
+.modal p {
     padding: 15px 20px;
+    margin: 10px 0;
     border-radius: 5px;
     background-color: #000;
     color: var(--mainColor);
@@ -79,7 +84,10 @@ html {
     letter-spacing: 2px;
     box-shadow: 0 -1px 47px rgba(0, 128, 0, 0.4),
         0px 2px 12px rgba(0, 128, 0, 0.7);
-    display: none;
+}
+.modal p b {
+    font-size: 20px;
+    font-weight: bold;
 }
 
 /* wrapper all shifre divs */
