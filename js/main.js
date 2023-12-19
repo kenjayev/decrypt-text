@@ -8,7 +8,6 @@ let inputValue = document.getElementById("inputValue"), /// input value for codi
     typeCodeSelect = document.getElementById("typeCodeSelect"), /// Selected by type coding
     typeCodeRadios = document.querySelectorAll("input[name='typeCoding']"),
     typroffText = document.getElementById("typroffText"), /// which coding type. for write html text
-    codeOrDecode = document.getElementById("codeOrDecode"), /// write html page what syte type code or Decode, inside typroffText
     outputKey = document.getElementById("outputKey"), /// output span for key word
     keyKodInput = document.getElementById("key"), /// input for key word
     keyKod = 3, /// key for coding or decoding
@@ -44,7 +43,9 @@ function changeTypeCoding() {
     }
 
     /// write in html to type coding
-    typroffText.textContent = `${typeKod} Usulidan foydalanib Codlash:`;
+    typroffText.innerHTML = `${typeKod} Usulidan foydalanib <span id="codeOrDecode">${
+        isYourWords ? "Codlash" : "Decodlash"
+    }</span>:`;
     /// again work main coding;
     mainStartCode();
 }
@@ -181,6 +182,7 @@ function privetCopy(outputValue) {
 
 // replays result function, it call in html
 function almashtir() {
+    let codeOrDecode = document.getElementById("codeOrDecode"); /// write html page what syte type code or Decode, inside typroffText
     isYourWords = !isYourWords;
 
     // replay values
