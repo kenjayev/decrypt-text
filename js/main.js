@@ -1,32 +1,52 @@
 // all variables call in HTML page
-let inputValue = document.getElementById("inputValue"), /// input value for coding or decoding
-    outputValue = document.getElementById("outputValue"), /// output value for coding or decoding for result
-    inputValueLabel = document.getElementById("inputValueLabel"), /// Label for input value
+let inputValue = document.getElementById("inputValue"), /// input value for coding or decoding, first Textarea
+    outputValue = document.getElementById("outputValue"), /// output value for coding or decoding for result, second Textarea
+    inputValueLabel = document.getElementById("inputValueLabel"), /// Label for input value, top of first Textarea
     copyBtn = document.getElementById("copy-btn"), /// Button for copy result text
     modal = document.getElementById("modal"), /// Message to copying result text
-    typeCodeSelect = document.getElementById("typeCode"), /// Selected by type coding
+    typeCodeSelect = document.getElementById("typeCodeSelect"), /// Selected by type coding
+    typeCodeRadios = document.querySelectorAll("input[name='typeCoding']"),
     typroffText = document.getElementById("typroffText"), /// which coding type. for write html text
-    keyKodInput = document.getElementById("key"), /// input for key word
-    save_key = document.getElementById("save_key"), ///btn which save key word
+    codeOrDecode = document.getElementById("codeOrDecode"), /// write html page what syte type code or Decode, inside typroffText
     outputKey = document.getElementById("outputKey"), /// output span for key word
-    codeOrDecode = document.getElementById("codeOrDecode"), /// write html page what syte type code or Decode
+    keyKodInput = document.getElementById("key"), /// input for key word
     keyKod = 3, /// key for coding or decoding
+    typeKod = "Sezar", /// type of coding which coding type sezar or bolakay
     isYourWords = true;
 
 ///Select our type coding
 typeCodeSelect.addEventListener("change", (e) => {
-    if (typeCodeSelect.value == "sezar") {
+    typeKod = e.target.value;
+    changeTypeCoding();
+    typeCodeRadios.forEach((radio) => {
+        if (typeKod === radio.value) {
+            radio.checked = true;
+        }
+    });
+});
+/// Select our coding type with radio buttons
+typeCodeRadios.forEach((radio) => {
+    radio.addEventListener("click", (e) => {
+        typeKod = e.target.value;
+        changeTypeCoding();
+        typeCodeSelect.value = typeKod;
+    });
+});
+/// main change codes
+function changeTypeCoding() {
+    if (typeKod == "Sezar") {
         keyKod = 3;
-        keyToInoutVAlue();
-    } else if (typeCodeSelect.value == "bolakay") {
+        keyToInOutValue();
+    } else if (typeKod == "Bolakay") {
         keyKod = 15;
-        keyToInoutVAlue();
+        keyToInOutValue();
     }
 
     /// write in html to type coding
-    typroffText.textContent = `${typeCodeSelect.value} Usulidan foydalanib Codlash:`;
+    typroffText.textContent = `${typeKod} Usulidan foydalanib Codlash:`;
+    /// again work main coding;
     mainStartCode();
-});
+}
 
 // Each changes use this function and output result
 inputValue.addEventListener("input", mainStartCode);
@@ -54,7 +74,7 @@ function shifirla(item) {
     let result = item.charCodeAt();
     if (
         ((64 < result && result <= 90) || (97 <= result && result <= 122)) &&
-        typeCodeSelect.value == "sezar"
+        typeKod == "Sezar"
     ) {
         result += keyKod;
         if (result > 90 && result < 97) {
@@ -64,7 +84,7 @@ function shifirla(item) {
         }
     }
 
-    if (31 < result && result <= 126 && typeCodeSelect.value == "bolakay") {
+    if (31 < result && result <= 126 && typeKod == "Bolakay") {
         result -= keyKod;
         // for decreased numbers
         if (result < 32) {
@@ -81,7 +101,7 @@ function qaytar(item) {
     let result = item.charCodeAt();
     if (
         ((64 < result && result <= 90) || (97 <= result && result <= 122)) &&
-        typeCodeSelect.value == "sezar"
+        typeKod == "Sezar"
     ) {
         console.log(result);
         result -= keyKod;
@@ -96,7 +116,7 @@ function qaytar(item) {
         }
     }
 
-    if (31 < result && result <= 126 && typeCodeSelect.value == "bolakay") {
+    if (31 < result && result <= 126 && typeKod == "Bolakay") {
         // Plus our Key Number
         result += keyKod;
 
@@ -113,7 +133,7 @@ function qaytar(item) {
 // Copy your result value
 function copyResult() {
     // copy text in buffer
-    //     navigator.clipboard.writeText(`"${typeCodeSelect.value} : ${keyKod} : ${
+    //     navigator.clipboard.writeText(`"${typeKod} : ${keyKod} : ${
     //         isYourWords ? "Code" : "Decode"
     //     }"
 
@@ -127,7 +147,7 @@ function copyResult() {
     `;
     setTimeout(() => {
         modal.innerHTML += `
-            <p>Shifirlash turi: <b>${typeCodeSelect.value}</b> </p>
+            <p>Shifirlash turi: <b>${typeKod}</b> </p>
         `;
     }, 800);
     setTimeout(() => {
@@ -181,23 +201,23 @@ function almashtir() {
 }
 
 /// Save our new Kay code
-save_key.addEventListener("click", () => {
+function save_key() {
     if (keyKodInput.value) {
-        if (typeCodeSelect.value == "sezar") {
+        if (typeKod == "Sezar") {
             keyKod = +keyKodInput.value % 26;
         }
-        if (typeCodeSelect.value == "bolakay") {
+        if (typeKod == "Bolakay") {
             keyKod = +keyKodInput.value % 95;
         }
     }
 
     keyKodInput.value = "";
-    keyToInoutVAlue();
+    keyToInOutValue();
     mainStartCode();
-});
+}
 
 /// print in html our key value
-function keyToInoutVAlue() {
+function keyToInOutValue() {
     outputKey.textContent = keyKod;
 }
-keyToInoutVAlue();
+keyToInOutValue();

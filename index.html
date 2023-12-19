@@ -18,21 +18,52 @@
     </head>
     <body>
         <div class="container">
+            <!--  -->
+            <div class="middle-section select-type-coding__wrapper">
+                <div class="type_coding__radios">
+                    <input
+                        type="radio"
+                        name="typeCoding"
+                        id="sezar"
+                        value="Sezar"
+                        class="radio"
+                        checked
+                    />
+                    <label for="sezar" class="radio-label">Sezar</label>
+
+                    <input
+                        type="radio"
+                        name="typeCoding"
+                        id="bolakay"
+                        value="Bolakay"
+                        class="radio"
+                    />
+                    <label for="bolakay" class="radio-label">Bolakay</label>
+                </div>
+            </div>
+            <!--  -->
+
+            <!--  -->
             <div class="top_section">
-                <select name="typeCode" id="typeCode">
-                    <option value="sezar">sezar</option>
-                    <option value="bolakay">bolakay</option>
-                </select>
+                <div class="typeCode_select-wrapper">
+                    <select name="typeCode" id="typeCodeSelect">
+                        <option value="Sezar">Sezar</option>
+                        <option value="Bolakay">Bolakay</option>
+                    </select>
+                </div>
+
                 <div class="top-text">
                     <h2 id="typroffText" class="typroffText">
-                        sezar Usulidan foydalanib
+                        Sezar usulidan foydalanib
                         <span id="codeOrDecode">Codlash</span>
                     </h2>
-                    <div>
-                        <p>Key:</p>
-                        <i id="outputKey"></i>
-                    </div>
                 </div>
+
+                <div class="codingKey-wrapper">
+                    <p>Key:</p>
+                    <i id="outputKey"></i>
+                </div>
+
                 <div class="keyWrapper">
                     <p class="keyParagraph">Kalit:</p>
                     <input
@@ -42,10 +73,14 @@
                         class="key input"
                         placeholder="Codlash uchun kelaitni krting"
                     />
-                    <button class="btn-save" id="save_key">Saqlash</button>
+                    <button class="btn-save" onclick="save_key()" id="save_key">
+                        Saqlash
+                    </button>
                 </div>
             </div>
+            <!--  -->
 
+            <!--  -->
             <div class="zoneShifir">
                 <!-- /* Start input value wrapper */ -->
                 <div>
@@ -93,6 +128,7 @@
                 </div>
                 <!-- /* End Output value wrapper */ -->
             </div>
+            <!--  -->
         </div>
 
         <div class="modal message-copy" id="modal"></div>
