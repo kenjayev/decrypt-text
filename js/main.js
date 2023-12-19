@@ -3,6 +3,7 @@ let inputValue = document.getElementById("inputValue"), /// input value for codi
     outputValue = document.getElementById("outputValue"), /// output value for coding or decoding for result, second Textarea
     inputValueLabel = document.getElementById("inputValueLabel"), /// Label for input value, top of first Textarea
     copyBtn = document.getElementById("copy-btn"), /// Button for copy result text
+    clear_textarea = document.getElementById("clear_textarea"),
     modal = document.getElementById("modal"), /// Message to copying result text
     typeCodeSelect = document.getElementById("typeCodeSelect"), /// Selected by type coding
     typeCodeRadios = document.querySelectorAll("input[name='typeCoding']"),
@@ -161,11 +162,19 @@ function copyResult() {
     }, 3000);
 }
 
-// hidden or block Copy img element
+// clear btn fpr input textarea
+function clearInput() {
+    inputValue.value = "";
+    mainStartCode();
+}
+
+// hidden or block Copy and clear btn element
 function privetCopy(outputValue) {
     if (outputValue.value.length === 0) {
+        clear_textarea.style.display = "none";
         copyBtn.style.display = "none";
     } else if (outputValue.value.length > 0) {
+        clear_textarea.style.display = "block";
         copyBtn.style.display = "block";
     }
 }

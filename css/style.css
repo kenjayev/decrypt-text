@@ -1,5 +1,28 @@
 /* Google fonts: roboto 400-700, Fira-code 400 */
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code&family=Roboto:ital,wght@0,700;1,400&display=swap");
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    position: relative;
+    background: var(--mainBg);
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--mainColor);
+    border-radius: 8px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(256, 256, 256, 0.8);
+}
 
 :root {
     /* --mainColor: #08caf6; */
@@ -55,7 +78,7 @@ html {
 }
 /* big wrapper all contents */
 .container {
-    max-width: 1350px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 30px 50px;
 }
@@ -124,6 +147,7 @@ textarea {
     width: 100%;
     height: 220px;
     padding: 12px 20px;
+    padding-right: 40px;
     background-color: #1e1e1e;
 }
 textarea[name="inputValue"] {
@@ -132,11 +156,18 @@ textarea[name="inputValue"] {
 }
 
 /* Copy Result */
-.copy {
+.btn.copy,
+.cross {
     position: absolute;
-    bottom: 20px;
-    right: 20px;
+    bottom: 10px;
+    right: 12px;
     display: none;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+}
+.btn.cross {
+    top: 30px;
 }
 
 /* replays inputValue to OutputValue */
@@ -280,6 +311,12 @@ textarea[name="inputValue"] {
         width: 45px;
         height: 45px;
         font-size: 18px;
+        cursor: pointer;
+    }
+    .btn.copy,
+    .btn.cross {
+        width: 35px;
+        height: 35px;
     }
     .arrow-right_left {
         margin: 5px 0;
