@@ -13,14 +13,17 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         />
+
         <!-- Main styles -->
         <link rel="stylesheet" href="./css/style.css" />
     </head>
     <body>
+        <!-- Start main section and big wrapper -->
         <div class="container">
-            <!--  -->
-            <div class="middle-section select-type-coding__wrapper">
+            <!-- Start of Select type of decrypt  -->
+            <div class="select-type-coding__wrapper">
                 <div class="type_coding__radios">
+                    <!-- Fist type: sezar -->
                     <input
                         type="radio"
                         name="typeCoding"
@@ -30,7 +33,7 @@
                         checked
                     />
                     <label for="sezar" class="radio-label">Sezar</label>
-
+                    <!-- Second type: Bolakay -->
                     <input
                         type="radio"
                         name="typeCoding"
@@ -41,10 +44,11 @@
                     <label for="bolakay" class="radio-label">Bolakay</label>
                 </div>
             </div>
-            <!--  -->
+            <!-- End of Select type of decrypt  -->
 
-            <!--  -->
-            <div class="top_section">
+            <!-- Start of About current type of decrypt -->
+            <div class="about-current-type">
+                <!-- select type for phone -->
                 <div class="typeCode_select-wrapper">
                     <select name="typeCode" id="typeCodeSelect">
                         <option value="Sezar">Sezar</option>
@@ -52,6 +56,7 @@
                     </select>
                 </div>
 
+                <!-- Name current type -->
                 <div class="top-text">
                     <h2 id="typroffText" class="typroffText">
                         Sezar usulidan foydalanib
@@ -59,19 +64,20 @@
                     </h2>
                 </div>
 
+                <!-- Key current type -->
                 <div class="codingKey-wrapper">
                     <p>Key:</p>
                     <i id="outputKey"></i>
                 </div>
 
+                <!-- Select new Key -->
                 <div class="keyWrapper">
-                    <p class="keyParagraph">Kalit:</p>
                     <input
                         type="number"
                         name="key"
                         id="key"
                         class="key input"
-                        placeholder="Codlash uchun kelaitni krting"
+                        placeholder="Yangi kalit"
                     />
                     <button class="btn-save" onclick="save_key()" id="save_key">
                         Saqlash
@@ -80,7 +86,7 @@
             </div>
             <!--  -->
 
-            <!--  -->
+            <!-- Start of Decrypt zone -->
             <div class="zoneShifir">
                 <!-- /* Start input value wrapper */ -->
                 <div>
@@ -96,6 +102,7 @@
                         placeholder="Asl so'zni bu yerga kiriting"
                         class="input"
                     ></textarea>
+                    <!-- Clear BTN input text area -->
                     <button
                         class="btn cross"
                         id="clear_textarea"
@@ -115,7 +122,6 @@
                 <!-- /* Start Output value wrapper */ -->
                 <div>
                     <label for="outputValueLable">Natijangiz: </label>
-
                     <textarea
                         name="outputValue"
                         id="outputValue"
@@ -125,6 +131,8 @@
                         placeholder="Va bu yerdan o'z natijangizga erishing"
                         class="input"
                     ></textarea>
+
+                    <!-- Copy BTN output value -->
                     <button
                         class="btn copy"
                         id="copy-btn"
@@ -135,10 +143,13 @@
                 </div>
                 <!-- /* End Output value wrapper */ -->
             </div>
-            <!--  -->
+            <!-- Start of Decrypt zone -->
         </div>
+        <!-- And main section and big wrapper -->
 
         <div class="modal message-copy" id="modal"></div>
+
+        <!-- Main JS file -->
         <script src="./js/main.js"></script>
     </body>
 </html>

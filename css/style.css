@@ -35,191 +35,22 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
 }
 body {
     min-height: 100vh;
     background-color: var(--mainBg);
     color: var(--mainColor);
     background: linear-gradient(rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.01)),
-        url("../bg.jpg");
+        url("../bg/bg.jpg");
     background-size: cover;
     background-position: top;
-}
-html {
-    font-family: "Roboto", sans-serif;
-}
-
-.top_section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 15px;
-    margin-top: 20px;
-}
-.top_section > div:not(:last-child) {
-    margin-right: 20px;
-}
-.top-text {
-    text-align: center;
-}
-
-.codingKey-wrapper {
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.codingKey-wrapper #outputKey {
-    font-size: 22px;
-    font-weight: 600;
-    margin-left: 5px;
-    padding: 0 3px;
-    text-decoration: underline;
 }
 /* big wrapper all contents */
 .container {
     max-width: 1400px;
     margin: 0 auto;
     padding: 30px 50px;
-}
-/* For Button */
-.btn {
-    color: #fff;
-    border: 3px solid #ccc;
-    border-radius: 50%;
-    font-size: 22px;
-    background-color: transparent;
-    width: 50px;
-    height: 50px;
-}
-/* Modal */
-.modal {
-    position: fixed;
-    bottom: 25px;
-    right: 50px;
-    display: none;
-}
-.modal p {
-    padding: 15px 20px;
-    margin: 10px 0;
-    border-radius: 5px;
-    background-color: #000;
-    color: var(--mainColor);
-    font-size: 16px;
-    letter-spacing: 2px;
-    box-shadow: 0 -1px 47px rgba(0, 128, 0, 0.4),
-        0px 2px 12px rgba(0, 128, 0, 0.7);
-}
-.modal p b {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-/* wrapper all shifre divs */
-.zoneShifir {
-    margin-top: 50px;
-    display: flex;
-    align-items: flex-end;
-}
-.zoneShifir > div {
-    flex: 1;
-    position: relative;
-}
-
-.zoneShifir label {
-    display: block;
-    font-weight: 400;
-    font-size: 15px;
-    letter-spacing: 2px;
-    margin-left: 5px;
-    margin-bottom: 5px;
-    transition: all 1s;
-}
-.input {
-    border-radius: 4px;
-    resize: none;
-    font-family: "Fira Code", monospace;
-    border: none;
-    color: var(--mainColor);
-    font-size: 16px;
-}
-textarea {
-    width: 100%;
-    height: 220px;
-    padding: 12px 20px;
-    padding-right: 40px;
-    background-color: #1e1e1e;
-}
-textarea[name="inputValue"] {
-    background-color: #111;
-    border: 2px solid var(--mainColor);
-}
-
-/* Copy Result */
-.btn.copy,
-.cross {
-    position: absolute;
-    bottom: 10px;
-    right: 12px;
-    display: none;
-    width: 40px;
-    height: 40px;
-    font-size: 18px;
-}
-.btn.cross {
-    top: 30px;
-}
-
-/* replays inputValue to OutputValue */
-.arrow-right_left {
-    margin: 0 20px;
-    transform: translateY(50%);
-}
-
-.typeCode_select-wrapper {
-    display: none;
-}
-#typeCodeSelect,
-#typeCodeSelect > option {
-    font-weight: 500;
-    font-size: 16px;
-    padding: 8px 16px;
-    color: var(--mainColor);
-    background-color: var(--mainBg);
-    border: 2px solid var(--mainColor);
-    border-radius: 4px;
-}
-.keyWrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.keyWrapper p {
-    font-size: 18px;
-}
-.keyWrapper input {
-    width: 160px;
-    margin: 0 10px;
-    padding: 6px;
-    background-color: #111;
-    border: 2px solid var(--mainColor);
-    outline: none;
-}
-.keyWrapper .btn-save {
-    font-size: 18px;
-    padding: 6px 16px;
-    color: var(--mainColor);
-    background-color: #111;
-    border: 2px solid var(--mainColor);
-    border-radius: 4px;
-    cursor: pointer;
-    transition: transform 0.4s ease;
-}
-.btn-save:hover {
-    box-shadow: 0px 3px 12px rgba(256, 256, 256, 0.49);
-}
-.btn-save:active {
-    transform: scale(0.9);
 }
 
 /* Start of Selects type Coding with Radio Buttons */
@@ -276,7 +107,149 @@ textarea[name="inputValue"] {
     border-radius: 50%;
     background-color: var(--mainColor);
 }
+/* For phone */
+.typeCode_select-wrapper {
+    display: none;
+}
 /* End of Selects type Coding with Radio Buttons */
+
+/* Start of about current type */
+#typeCodeSelect,
+#typeCodeSelect > option {
+    font-weight: 500;
+    font-size: 16px;
+    padding: 8px 16px;
+    color: var(--mainColor);
+    background-color: var(--mainBg);
+    border: 2px solid var(--mainColor);
+    border-radius: 4px;
+}
+
+.about-current-type {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    margin-top: 20px;
+}
+
+.codingKey-wrapper {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.codingKey-wrapper #outputKey {
+    font-size: 22px;
+    font-weight: 600;
+    margin-left: 5px;
+    padding: 0 3px;
+    text-decoration: underline;
+}
+
+.keyWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.keyWrapper p {
+    font-size: 18px;
+}
+.keyWrapper input {
+    width: 160px;
+    margin: 0 10px;
+    padding: 6px;
+    background-color: #111;
+    border: 2px solid var(--mainColor);
+    outline: none;
+}
+.keyWrapper .btn-save {
+    font-size: 18px;
+    padding: 6px 16px;
+    color: var(--mainColor);
+    background-color: #111;
+    border: 2px solid var(--mainColor);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+}
+.btn-save:hover {
+    box-shadow: 0px 3px 12px rgba(256, 256, 256, 0.49);
+}
+.btn-save:active {
+    transform: scale(0.9);
+}
+/* Start of about current type */
+
+/* wrapper all shifre divs */
+.zoneShifir {
+    margin-top: 50px;
+    display: flex;
+    align-items: flex-end;
+}
+.zoneShifir > div {
+    flex: 1;
+    position: relative;
+}
+
+.zoneShifir label {
+    display: block;
+    font-weight: 400;
+    font-size: 15px;
+    letter-spacing: 2px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    transition: all 1s;
+}
+textarea {
+    padding: 12px 20px;
+    padding-right: 40px;
+    width: 100%;
+    height: 220px;
+    font-size: 16px;
+
+    font-family: "Fira Code", monospace;
+    color: var(--mainColor);
+    background-color: #1e1e1e;
+    border-radius: 4px;
+    border: none;
+    resize: none;
+}
+textarea[name="inputValue"] {
+    background-color: #111;
+    border: 2px solid var(--mainColor);
+}
+
+/* Start of button section */
+.btn {
+    color: #fff;
+    border: 3px solid #ccc;
+    border-radius: 50%;
+    font-size: 22px;
+    background-color: transparent;
+    width: 50px;
+    height: 50px;
+}
+/* Copy Result */
+.btn.copy,
+.cross {
+    position: absolute;
+    bottom: 10px;
+    right: 12px;
+    display: none;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+}
+.btn.cross {
+    top: 30px;
+}
+/* replays inputValue to OutputValue */
+.arrow-right_left {
+    margin: 0 20px;
+    transform: translateY(50%);
+}
+/* End of Button section */
 
 /* Start media query for Table and Phons */
 @media screen and (max-width: 800px) {
@@ -284,15 +257,15 @@ textarea[name="inputValue"] {
         display: none;
     }
     .zoneShifir,
-    .top_section {
+    .about-current-type {
         flex-direction: column;
         align-items: flex-start;
         margin-top: 20px;
     }
-    .top_section > div:not(:last-child) {
+    .about-current-type > div:not(:last-child) {
         margin-bottom: 12px;
     }
-    .top_section {
+    .about-current-type {
         align-items: center;
     }
     .typeCode_select-wrapper {

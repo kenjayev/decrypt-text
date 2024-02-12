@@ -24,6 +24,7 @@ typeCodeSelect.addEventListener("change", (e) => {
         }
     });
 });
+
 /// Select our coding type with radio buttons
 typeCodeRadios.forEach((radio) => {
     radio.addEventListener("click", (e) => {
@@ -32,6 +33,7 @@ typeCodeRadios.forEach((radio) => {
         typeCodeSelect.value = typeKod;
     });
 });
+
 /// main change codes
 function changeTypeCoding() {
     if (typeKod == "Sezar") {

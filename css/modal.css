@@ -1,0 +1,22 @@
+/* Start of Modal */
+.modal {
+    position: fixed;
+    bottom: 25px;
+    right: 50px;
+    display: none;
+}
+.modal p {
+    padding: 15px 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: #000;
+    color: var(--mainColor);
+    font-size: 16px;
+    letter-spacing: 2px;
+    box-shadow: 0 -1px 47px rgba(0, 128, 0, 0.4),
+        0px 2px 12px rgba(0, 128, 0, 0.7);
+}
+.modal p b {
+    font-size: 20px;
+    font-weight: bold;
+}
