@@ -1,28 +1,5 @@
 /* Google fonts: roboto 400-700, Fira-code 400 */
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code&family=Roboto:ital,wght@0,700;1,400&display=swap");
-/* width */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-    position: relative;
-    background: var(--mainBg);
-    cursor: pointer;
-    z-index: 10;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: var(--mainColor);
-    border-radius: 8px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: rgba(256, 256, 256, 0.8);
-}
 
 :root {
     /* --mainColor: #08caf6; */
@@ -30,7 +7,6 @@
     --mainColor: #fff;
     --mainBg: #000;
 }
-
 * {
     padding: 0;
     margin: 0;
@@ -113,7 +89,15 @@ body {
 }
 /* End of Selects type Coding with Radio Buttons */
 
-/* Start of about current type */
+/* Start of About Current type */
+.about-current-type {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    margin-top: 20px;
+}
+
 #typeCodeSelect,
 #typeCodeSelect > option {
     font-weight: 500;
@@ -123,14 +107,6 @@ body {
     background-color: var(--mainBg);
     border: 2px solid var(--mainColor);
     border-radius: 4px;
-}
-
-.about-current-type {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 15px;
-    margin-top: 20px;
 }
 
 .codingKey-wrapper {
@@ -150,18 +126,17 @@ body {
 .keyWrapper {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-}
-.keyWrapper p {
-    font-size: 18px;
 }
 .keyWrapper input {
     width: 160px;
     margin: 0 10px;
     padding: 6px;
+    color: var(--mainColor);
     background-color: #111;
     border: 2px solid var(--mainColor);
+    border-radius: 5px;
     outline: none;
+    font-size: 16px;
 }
 .keyWrapper .btn-save {
     font-size: 18px;
@@ -169,7 +144,7 @@ body {
     color: var(--mainColor);
     background-color: #111;
     border: 2px solid var(--mainColor);
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
     transition: transform 0.4s ease;
 }
@@ -179,9 +154,9 @@ body {
 .btn-save:active {
     transform: scale(0.9);
 }
-/* Start of about current type */
+/* End of About Current type */
 
-/* wrapper all shifre divs */
+/* Start of decrypt zone */
 .zoneShifir {
     margin-top: 50px;
     display: flex;
@@ -219,6 +194,7 @@ textarea[name="inputValue"] {
     background-color: #111;
     border: 2px solid var(--mainColor);
 }
+/* End of decrypt zone */
 
 /* Start of button section */
 .btn {
@@ -309,3 +285,26 @@ textarea[name="inputValue"] {
     }
 }
 /* End media query for Table and Phons */
+
+/* Start of scroll bar */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+    position: relative;
+    background: var(--mainBg);
+    cursor: pointer;
+    z-index: 10;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--mainColor);
+    border-radius: 8px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(256, 256, 256, 0.8);
+}
+/* End of scroll bar */
